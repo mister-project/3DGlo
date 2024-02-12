@@ -1,5 +1,5 @@
 const twoModule = () => {
-    const two = 'two3.js'
+    const two = 'two2.js'
     console.log(two);
 }
 export default twoModule
