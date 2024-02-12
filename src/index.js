@@ -1,5 +1,5 @@
-import modulOne from './modules/one'
-import modulTwo from './modules/two'
+import timer from './modules/timer'
+// import modulTwo from './modules/two'
 console.log('index.js');
-modulOne();
-modulTwo();
+timer('16 february 2024');
+// modulTwo();
