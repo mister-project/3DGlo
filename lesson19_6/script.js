@@ -28,13 +28,13 @@ switch (true) {
 
 }
 //Определяем и выводим день недели
-today = document.getElementById('today'),
-    today.innerHTML = 'Сегодня: ' + date.toLocaleString('ru', {
-        weekday: 'long'
-    })
+let today = document.getElementById('today');
+today.innerHTML = 'Сегодня: ' + date.toLocaleString('ru', {
+    weekday: 'long'
+})
 //определение и вывод времени в формате AM/PM
-nowAmPm = document.getElementById('nowAmPm'),
-    nowAmPm.innerHTML = 'Текущее время: ' + date.toLocaleTimeString("en"); // 9:17:25 PM
+let nowAmPm = document.getElementById('nowAmPm');
+nowAmPm.innerHTML = 'Текущее время: ' + date.toLocaleTimeString("en"); // 9:17:25 PM
 console.log(myHours)
 console.log(elements.innerHTML)
 
