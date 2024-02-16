@@ -3,8 +3,7 @@ const menu = () => {
     const menu = document.querySelector('menu')
     const closeBtn = menu.querySelector('.close-btn')
     const menuItems = menu.querySelectorAll('ul>li>a')
-    console.log(menuBtn)
-    console.log(menu)
+
 
     const handleMenu = () => {
         // if (!menu.style.transform) {
