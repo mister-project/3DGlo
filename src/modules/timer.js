@@ -1,5 +1,5 @@
 const timer = (deadline) => {
-    console.log(deadline)
+    console.log("timer")
     const timerHours = document.getElementById('timer-hours')
     const timerMinutes = document.getElementById('timer-minutes')
     const timerSeconds = document.getElementById('timer-seconds')
@@ -8,7 +8,7 @@ const timer = (deadline) => {
         let dateStop = new Date(deadline).getTime()
         let dateNow = new Date().getTime()
         let timeRemaining = (dateStop - dateNow) / 1000
-        console.log(timeRemaining)
+        // console.log(timeRemaining)
 
         let hours = Math.floor(timeRemaining / 60 / 60)
         let minutes = Math.floor((timeRemaining / 60) % 60)
@@ -25,7 +25,7 @@ const timer = (deadline) => {
     //функция обновления значений + заполнение пустых разрядов нулями
     const updateClock = () => {
         let getTime = getTimeRemaining()
-        console.log(getTime)
+        //console.log(getTime)
         //добавление разрядов
         timerHours.textContent = ('0' + getTime.hours).slice(-2);
         timerMinutes.textContent = ('0' + getTime.minutes).slice(-2);
