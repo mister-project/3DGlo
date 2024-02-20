@@ -1,4 +1,5 @@
 const validator = () => {
+    console.log('validator');
     //Выделение полей в разделе "Расчитать стоимость"
     const items = document.querySelectorAll('.calc-item')
     // console.log(items)
@@ -12,16 +13,11 @@ const validator = () => {
             e.target.value = e.target.value.replace(/\D+/g, "")
         })
 
-
-
     }
-
-
-
 
     //Только КИРИЛИЦА -Валидация поля имени в форме вначале, внизу и модальном окне 
     const userName = document.querySelectorAll('[name="user_name"]');
-    console.log(userName);
+
     userName.forEach(element => {
 
         element.addEventListener('input', (e) => {
@@ -29,19 +25,27 @@ const validator = () => {
         })
     });
 
-
+    //Валидация поля с e-mail
     const email = document.querySelectorAll('.form-email')
-    console.log(email);
+
     email.forEach(el => {
 
         el.addEventListener('input', (e) => {
-            console.log(e.target.value)
+
             e.target.value = e.target.value.replace(/([^A-Za-z0-9@\-\_\.\~\*\'])+$/g, "");
         })
     });
-    const tel = document.querySelectorAll('input[type="tel"]')
-    console.log(tel);
 
+    //валидация телефона 
+    const tel = document.querySelectorAll('input[type="tel"]')
+
+    tel.forEach(elem => {
+
+        elem.addEventListener('input', (e) => {
+
+            e.target.value = e.target.value.replace(/[^0-9\(\)\-]/g, "");
+        })
+    });
 
     //Только КИРИЛЛИЦА - валидация поля "Ваше сообщение в конце страницы"
     const place = document.querySelector('[placeholder="Ваше сообщение"]')
