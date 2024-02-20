@@ -30,12 +30,13 @@ const validator = () => {
     });
 
 
-    const email = document.querySelectorAll('input[type="email"]')
+    const email = document.querySelectorAll('.form-email')
     console.log(email);
     email.forEach(el => {
-        console.log(el)
+
         el.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/g, "");
+            console.log(e.target.value)
+            e.target.value = e.target.value.replace(/([^A-Za-z0-9@\-\_\.\~\*\'])+$/g, "");
         })
     });
     const tel = document.querySelectorAll('input[type="tel"]')
