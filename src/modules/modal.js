@@ -1,4 +1,5 @@
 const modal = () => {
+    console.log('modal')
     const modal = document.querySelector('.popup')
     const buttons = document.querySelectorAll('.popup-btn')
     const closeBtn = document.querySelector('.popup-close')
@@ -10,9 +11,11 @@ const modal = () => {
 
     //Функция-цикл для анимации параметра прозрачности "style.opacity" от 0 до 1 с шагом 0.01 (100 циклов) + запрет анимации, если ширина экрана (innerWidth)  меньше 768px 
     const popupAnimate = () => {
-        console.log(window.innerWidth)
+        //Вывод ширины окна
+        // console.log(window.innerWidth)
         count++
         idInterval = requestAnimationFrame(popupAnimate)
+        //Задаем исходные условия работы анимации (интервал увеличения видимости + ширина окна д.б более 768(не мобильный телефон))
         if (count < 100 && window.innerWidth > 768) {
             modal.style.opacity = count * 0.01
 
@@ -27,9 +30,15 @@ const modal = () => {
             modal.style.display = 'block', popupAnimate()
         })
     })
-    // Навешиваем события на кнопку Х(закрытие окна) - меняем style.display = 'none'. Счетчик count обнуляем для возможности анимации, если после закрытия окна снова будет нажатие на кнопки в "Наши услуги"
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none', count = 0
+
+    modal.addEventListener('click', (e) => {
+        //метод 'closest' отправляет значение наверх по верстке и позволяет получить значение 'null при клике мимо окна
+        // console.log(e.target.closest('.popup-content'))// получаем null при клике мимо окна;
+        //закрываем модальное окно при значении null или нажатии на кнопку X. меняем style.display = 'none'. Счетчик count обнуляем для возобновления анимации, (если после закрытия окна снова будет нажатие на кнопку "Оставить заявку")
+        if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
+
+            modal.style.display = 'none', count = 0
+        }
     })
 
 }
