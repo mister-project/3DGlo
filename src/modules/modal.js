@@ -10,7 +10,7 @@ const modal = () => {
 
     //Функция-цикл для анимации параметра прозрачности "style.opacity" от 0 до 1 с шагом 0.01 (100 циклов) + запрет анимации, если ширина экрана (innerWidth)  меньше 768px 
     const popupAnimate = () => {
-        console.log(window.innerWidth)
+        //console.log(window.innerWidth)
         count++
         idInterval = requestAnimationFrame(popupAnimate)
         if (count < 100 && window.innerWidth > 768) {
