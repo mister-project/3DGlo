@@ -3,7 +3,7 @@ const modal = () => {
     const buttons = document.querySelectorAll('.popup-btn')
     const closeBtn = document.querySelector('.popup-close')
 
-
+    //
     let count = 0; //переменная для счетчика в цикле анимациии
 
     let idInterval //переменная для запуска и остановки анимации
