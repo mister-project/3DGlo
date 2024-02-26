@@ -17,7 +17,16 @@ const menu = () => {
     }
 
     menuBtn.addEventListener('click', handleMenu);
-    closeBtn.addEventListener('click', handleMenu);
+    menu.addEventListener('click', (e) => {
+        if (e.target.classList.contains('close-btn')) {
+            handleMenu();
+        } else {
+            console.log('неудача')
+        }
+    });
+
+
+    //closeBtn.addEventListener('click', handleMenu);
 
     menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu))
 }
