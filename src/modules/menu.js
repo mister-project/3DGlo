@@ -1,9 +1,8 @@
 const menu = () => {
     const menuBtn = document.querySelector('.menu')
     const menu = document.querySelector('menu')
-    const closeBtn = menu.querySelector('.close-btn')
-    const menuItems = menu.querySelectorAll('ul>li>a')
 
+    const menuItems1 = menu.querySelectorAll('ul>li>a')
 
     const handleMenu = () => {
         // if (!menu.style.transform) {
@@ -18,18 +17,20 @@ const menu = () => {
 
     menuBtn.addEventListener('click', handleMenu);
     menu.addEventListener('click', (e) => {
-        if (e.target.classList.contains('close-btn')) {
-            handleMenu();
-        } else {
-            console.log('неудача')
+        const menuItems = e.target.classList.contains('ul>li>a')
+        console.log(menuItems);
+        if (e.target.classList.contains('close-btn') || (!menuItems)) {
+            handleMenu()
         }
-    });
-
-
-    //closeBtn.addEventListener('click', handleMenu);
-
-    menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu))
+    })
 }
+
+
+
+//closeBtn.addEventListener('click', handleMenu);
+
+// menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu))
+
 
 
 export default menu
