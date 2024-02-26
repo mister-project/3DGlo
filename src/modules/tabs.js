@@ -14,7 +14,7 @@ const tabs = () => {
         if (e.target.closest('.service-header-tab')) {
             //через 'span' формируем переменную, обьединяющую нажатие на 2 части одной кнопки: text + span
             const tabBtn = e.target.closest('.service-header-tab')
-            console.log(tabBtn);
+
             tabs.forEach((tab, index) => {
                 if (tab === tabBtn) {
                     //Включаем подстветку выбранного заголовка

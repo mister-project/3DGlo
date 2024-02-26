@@ -1,36 +1,38 @@
 const menu = () => {
-    const menuBtn = document.querySelector('.menu')
-    const menu = document.querySelector('menu')
+    const body = document.querySelector('body')
+    const menu = body.querySelector('menu')
+    const menuItems = menu.querySelectorAll('ul>li>a')
 
-    const menuItems1 = menu.querySelectorAll('ul>li>a')
-
+    //Функция для изменения класса меню на active-menu и обратно
     const handleMenu = () => {
-        // if (!menu.style.transform) {
-        //     menu.style.transform = 'translateX(0)'
-        // } else {
-        //     menu.style.transform = ''
-        // }
-
 
         menu.classList.toggle('active-menu');
+    };
+
+    //Функция для деллегирования кликов на все кнопки меню
+    const toggleMenu = () => {
+
+        body.addEventListener('click', (e) => {
+
+            menuItems.forEach((menuItem) => {
+                if (e.target.closest(".menu") || e.target.classList.contains('close-btn') || e.target.contains(menuItem)) {
+                    handleMenu();
+
+
+                } else if (e.target.closest(".active-menu")) {
+                    handleMenu();
+                }
+
+            })
+
+        })
+
     }
 
-    menuBtn.addEventListener('click', handleMenu);
-    menu.addEventListener('click', (e) => {
-        const menuItems = e.target.classList.contains('ul>li>a')
-        console.log(menuItems);
-        if (e.target.classList.contains('close-btn') || (!menuItems)) {
-            handleMenu()
-        }
-    })
+    toggleMenu();
+
+
 }
-
-
-
-//closeBtn.addEventListener('click', handleMenu);
-
-// menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu))
-
 
 
 export default menu
