@@ -6,11 +6,13 @@ const slider = () => {
     //Коллекция точек
     const dots = document.querySelectorAll('.dot')
     console.log(dots);
-    //
     
-    
+    //Переменная для задания интервала автолистания слайдера    
+    const timeInterval = 2000;
     // Задаем начальное значение переменной - счетчика  
     let currentSlide = 0;
+    //Переменная для реализации остановки автослайдера при наведении курсора на кнопки
+    let interval;
 
     const prevSlide = (elems, index, strClass) => {
         //Удаляем класс активности (видимости) текущего слайда
@@ -38,22 +40,30 @@ const slider = () => {
         
     }
 //Задаем запуск показа и время интервала
-    const startSlide = () => {
-        setInterval(autoSlide, 2000)
+    const startSlide = (timer = 1500) => {
+        
+        interval = setInterval(autoSlide, timer)
     }
 
     const stopSlide = () => {
+        clearInterval(interval);
         
     }
 
     sliderBlock.addEventListener('click', (e) => {
         e.preventDefault()
 
+        if (!e.target.matches('.dot, .portfolio-btn')) {
+            return
+        }
+        
+
         prevSlide(slides, currentSlide, 'portfolio-item-active')
         prevSlide(dots, currentSlide, 'dot-active')
 
         if (e.target.matches('#arrow-right')) {
             currentSlide++
+            
 
         } else if (e.target.matches('#arrow-left'))  {
             currentSlide--;
@@ -68,11 +78,34 @@ const slider = () => {
 
         }
 
+        if (currentSlide >= slides.length) {
+            currentSlide = 0
+        }
+
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1
+        }
+
         nextSlide(slides, currentSlide, 'portfolio-item-active');
        nextSlide(dots, currentSlide, 'dot-active');
     })
 
-    startSlide();
+    sliderBlock.addEventListener('mouseenter', (e) => {
+        
+        if (e.target.matches('.dot, .portfolio-btn')) {
+            stopSlide();
+        }
+
+    }, true)
+
+    sliderBlock.addEventListener('mouseleave', (e) => {
+        
+        if (e.target.matches('.dot, .portfolio-btn')) {
+            startSlide(timeInterval);
+        }
+    }, true)
+
+    startSlide(timeInterval);
 
 }
 
