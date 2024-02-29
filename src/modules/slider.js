@@ -1,32 +1,40 @@
 const slider = () => {
+    //Получаем элементы слайдера
     const sliderBlock = document.querySelector('.portfolio-content')
-    const slides= document.querySelectorAll('.portfolio-item')
+    //Коллекция слайдов
+    const slides = document.querySelectorAll('.portfolio-item')
+    //Коллекция точек
+    const dots = document.querySelectorAll('.dot')
+    console.log(dots);
+    //
     
     
     // Задаем начальное значение переменной - счетчика  
     let currentSlide = 0;
 
-    const prevslide = (elems, index, strClass) => {
+    const prevSlide = (elems, index, strClass) => {
         //Удаляем класс активности (видимости) текущего слайда
-        slides[index].classList.remove(strClass)
+        elems[index].classList.remove(strClass)
     }
 
     const nextSlide = (elems, index, strClass) => {
         //следующему слайду добавляем класс активности (видимости)
-        slides[index].classList.add(strClass)
+        elems[index].classList.add(strClass)
 
     }
 
     const autoSlide = () => {
         //запускаем показ слайдов и передаем параметры для функции
-        prevslide(slides, currentSlide, 'portfolio-item-active');
+        prevSlide(slides, currentSlide, 'portfolio-item-active')
+        prevSlide(dots, currentSlide, 'dot-active')
         //Запускаем счетчик через переменную
         currentSlide++
 // Условие остановки счетчика
         if (currentSlide >= slides.length) {
-            currentSlide = 0;
+            currentSlide = 0
         }
         nextSlide(slides, currentSlide, 'portfolio-item-active');
+       nextSlide(dots, currentSlide, 'dot-active');
         
     }
 //Задаем запуск показа и время интервала
