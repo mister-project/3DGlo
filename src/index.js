@@ -5,7 +5,7 @@ import validator from './modules/validator'
 import tabs from './modules/tabs'
 import slider from './modules/slider'
 console.log('index.js');
-timer('30 february 2024');
+timer('28 february 2025');
 menu();
 modal();
 validator();

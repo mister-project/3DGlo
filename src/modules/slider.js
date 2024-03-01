@@ -3,16 +3,35 @@ const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content')
     //Коллекция слайдов
     const slides = document.querySelectorAll('.portfolio-item')
+    //Блок для вставки точек
+    const dotsBlok = document.querySelector(".portfolio-dots");
     //Коллекция точек
-    const dots = document.querySelectorAll('.dot')
-    console.log(dots);
-    
+    let dots = document.querySelectorAll('.dot');
+    // console.log(dots);
+
     //Переменная для задания интервала автолистания слайдера    
     const timeInterval = 2000;
     // Задаем начальное значение переменной - счетчика  
     let currentSlide = 0;
     //Переменная для реализации остановки автослайдера при наведении курсора на кнопки
     let interval;
+
+
+    // Создание точек по количеству слайдов
+    const createDots = () => {
+        for (let i = 0; i < slides.length; i++) {
+            const li = document.createElement("li");
+            if (i === 0) {
+                li.className = "dot dot-active";
+            } else {
+                li.className = "dot";
+            }
+
+            dotsBlok.append(li);
+        }
+        dots = document.querySelectorAll(".dot");
+        console.log(dots);
+    };
 
     const prevSlide = (elems, index, strClass) => {
         //Удаляем класс активности (видимости) текущего слайда
@@ -23,7 +42,7 @@ const slider = () => {
         //следующему слайду добавляем класс активности (видимости)
         elems[index].classList.add(strClass)
 
-    }
+    };
 
     const autoSlide = () => {
         //запускаем показ слайдов и передаем параметры для функции
@@ -31,24 +50,24 @@ const slider = () => {
         prevSlide(dots, currentSlide, 'dot-active')
         //Запускаем счетчик через переменную
         currentSlide++
-// Условие остановки счетчика
+        // Условие остановки счетчика
         if (currentSlide >= slides.length) {
             currentSlide = 0
         }
         nextSlide(slides, currentSlide, 'portfolio-item-active');
-       nextSlide(dots, currentSlide, 'dot-active');
-        
-    }
-//Задаем запуск показа и время интервала
+        nextSlide(dots, currentSlide, 'dot-active');
+
+    };
+    //Задаем запуск показа и время интервала
     const startSlide = (timer = 1500) => {
-        
+
         interval = setInterval(autoSlide, timer)
-    }
+    };
 
     const stopSlide = () => {
         clearInterval(interval);
-        
-    }
+
+    };
 
     sliderBlock.addEventListener('click', (e) => {
         e.preventDefault()
@@ -56,42 +75,42 @@ const slider = () => {
         if (!e.target.matches('.dot, .portfolio-btn')) {
             return
         }
-        
+
 
         prevSlide(slides, currentSlide, 'portfolio-item-active')
         prevSlide(dots, currentSlide, 'dot-active')
 
         if (e.target.matches('#arrow-right')) {
             currentSlide++
-            
 
-        } else if (e.target.matches('#arrow-left'))  {
+
+        } else if (e.target.matches('#arrow-left')) {
             currentSlide--;
 
         } else if (e.target.classList.contains('dot')) {
-            
+
             dots.forEach((dot, index) => {
                 if (e.target === dot) {
-                    currentSlide = index
+                    currentSlide = index;
                 }
-            })
+            });
 
         }
 
         if (currentSlide >= slides.length) {
-            currentSlide = 0
+            currentSlide = 0;
         }
 
         if (currentSlide < 0) {
-            currentSlide = slides.length - 1
+            currentSlide = slides.length - 1;
         }
 
         nextSlide(slides, currentSlide, 'portfolio-item-active');
-       nextSlide(dots, currentSlide, 'dot-active');
+        nextSlide(dots, currentSlide, 'dot-active');
     })
 
     sliderBlock.addEventListener('mouseenter', (e) => {
-        
+
         if (e.target.matches('.dot, .portfolio-btn')) {
             stopSlide();
         }
@@ -99,15 +118,16 @@ const slider = () => {
     }, true)
 
     sliderBlock.addEventListener('mouseleave', (e) => {
-        
+
         if (e.target.matches('.dot, .portfolio-btn')) {
             startSlide(timeInterval);
         }
     }, true)
 
+    createDots();
     startSlide(timeInterval);
 
 }
 
 
-export default slider
+export default slider;
