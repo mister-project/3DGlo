@@ -1,13 +1,14 @@
 const slider = () => {
+    console.log('slider')
     //Получаем элементы слайдера
     const sliderBlock = document.querySelector('.portfolio-content')
     //Коллекция слайдов
     const slides = document.querySelectorAll('.portfolio-item')
     //Блок для вставки точек
     const dotsBlok = document.querySelector(".portfolio-dots");
-    //Коллекция точек
-    let dots = document.querySelectorAll('.dot');
-    // console.log(dots);
+    // Переменная для будущего списка li с точками
+    let dots = ''
+
 
     //Переменная для задания интервала автолистания слайдера    
     const timeInterval = 2000;
@@ -19,18 +20,24 @@ const slider = () => {
 
     // Создание точек по количеству слайдов
     const createDots = () => {
-        for (let i = 0; i < slides.length; i++) {
-            const li = document.createElement("li");
-            if (i === 0) {
+
+        let li = '';
+        slides.forEach((elem, ind) => {
+
+            li = document.createElement("li");
+            if (ind === 0) {
                 li.className = "dot dot-active";
             } else {
                 li.className = "dot";
             }
 
             dotsBlok.append(li);
-        }
-        dots = document.querySelectorAll(".dot");
-        console.log(dots);
+
+            dots = document.querySelectorAll(".dot");
+
+        })
+
+
     };
 
     const prevSlide = (elems, index, strClass) => {
