@@ -12,4 +12,4 @@ modal();
 validator();
 tabs();
 slider();
-calc();
+calc(100);
