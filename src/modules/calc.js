@@ -22,16 +22,24 @@ const calc = (price = 100) => {
 
         //Переменная для ИТОГО
         let totalValue = 0
-
         let calcCountValue = 1
+        let calcDayValue = 1
 
+        //Условия на значения в полях и формулы
         if (calcCount.value > 1) {
             calcCountValue += +calcCount.value / 10
         }
 
+        if (calcDay.value && calcDay.value < 5) {
+            calcDayValue = 2
+
+        } else if (calcDay.value && calcDay.value < 10) {
+            calcDayValue = 1.5
+        }
         //Условие на обязательное заполнение полей со * (звездочкой) для выполнения расчетов
         if (calcType.value && calcSquare.value) {
-            totalValue = price * calcTypeValue * calcSquareValue * calcCountValue
+            // console.log(calcCountValue)
+            totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue
 
         } else {
             totalValue = 0
