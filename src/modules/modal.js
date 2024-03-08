@@ -1,8 +1,9 @@
+//Этот модуль отключен .Это старый вариант вызова модального окна с анимацией. См. новый в modalk.js и helpers.js .
 const modal = () => {
     console.log('modal')
     const modal = document.querySelector('.popup')
     const buttons = document.querySelectorAll('.popup-btn')
-
+    const closeBtn = document.querySelector('.popup-close')
 
     //
     let count = 0; //переменная для счетчика в цикле анимациии
@@ -32,10 +33,9 @@ const modal = () => {
     })
 
     modal.addEventListener('click', (e) => {
-        e.preventDefault()
         //метод 'closest' отправляет значение наверх по верстке и позволяет получить значение 'null при клике мимо окна
         // console.log(e.target.closest('.popup-content'))// получаем null при клике мимо окна;
-        //закрываем модальное окно при значении null \отсутсвие popup-content снаружи\ (метод 'closest') или наличии внутри (метод 'contains') события "popup-close" - (нажатие на кнопку X). меняем style.display = 'none'. Счетчик count обнуляем для возобновления анимации, (если после закрытия окна снова будет нажатие на кнопку "Оставить заявку")
+        //закрываем модальное окно при значении null или нажатии на кнопку X. меняем style.display = 'none'. Счетчик count обнуляем для возобновления анимации, (если после закрытия окна снова будет нажатие на кнопку "Оставить заявку")
         if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
 
             modal.style.display = 'none', count = 0
@@ -43,5 +43,6 @@ const modal = () => {
     })
 
 }
+
 
 export default modal
