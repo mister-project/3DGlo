@@ -6,12 +6,14 @@ import validator from './modules/validator'
 import tabs from './modules/tabs'
 import slider from './modules/slider'
 import calc from './modules/calc'
+import sendForm from './modules/sendForm'
 console.log('index.js');
 timer('28 february 2025');
 menu();
 // modal();
-modalk();
-validator();
-tabs();
-slider();
-calc(100);
+modalk()
+validator()
+tabs()
+slider()
+calc(100)
+sendForm(form1)
