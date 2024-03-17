@@ -1,6 +1,6 @@
 const sendForm = (idForm) => {
     console.dir(idForm)
-    const form = document.getElementById(idForm.id)
+    const form = document.getElementById(idForm)
 
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
