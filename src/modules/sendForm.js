@@ -1,12 +1,8 @@
-const sendForm = (idForm) => {
-    console.dir(idForm)
-    const form = document.getElementById(idForm)
+const sendForm = ({ formId }) => {
+    // console.dir(idForm)
+    const form = document.getElementById(formId)
 
-    let user = {
-        name: 'Alex',
-        age: 24
-    }
-
+    
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
