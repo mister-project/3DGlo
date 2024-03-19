@@ -16,4 +16,13 @@ validator()
 tabs()
 slider()
 calc(100)
-sendForm({formId: 'form1'})
+sendForm({
+    formId: 'form1',
+    someElem: [
+        {
+            type: 'block',
+            id: 'total'
+        }
+
+    ]
+})
