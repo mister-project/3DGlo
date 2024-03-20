@@ -18,8 +18,7 @@ slider()
 calc(100)
 sendForm({
     formId: 'form1',
-    someElem: [
-        {
+    someElem: [{
             type: 'block',
             id: 'total'
         }
