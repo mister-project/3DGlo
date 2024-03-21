@@ -30,9 +30,14 @@ sendForm({
     someElem: [{
             type: 'block',
             id: 'total'
-        }
 
+        },
+        {
+            type: 'block',
+            id: "form2-message"
+        }
     ]
+
 })
 sendForm({
     formId: 'form3',

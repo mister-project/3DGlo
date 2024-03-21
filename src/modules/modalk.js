@@ -25,7 +25,7 @@ const modalk = () => {
             }
         })
         modal.addEventListener('click', (e) => {
-            e.preventDefault()
+            // e.preventDefault()
             //метод 'closest' отправляет значение наверх по верстке и позволяет получить значение 'null при клике мимо окна
             // console.log(e.target.closest('.popup-content'))// получаем null при клике мимо окна;
             //закрываем модальное окно при значении null \отсутсвие popup-content снаружи\ (метод 'closest') или наличии внутри (метод 'contains') события "popup-close" - (нажатие на кнопку X). меняем style.display = 'none'. Счетчик count обнуляем для возобновления анимации, (если после закрытия окна снова будет нажатие на кнопку "Оставить заявку")

@@ -62,7 +62,7 @@ const sendForm = ({
         //вывод и отправка значения "Калькулятора"
         someElem.forEach(elem => {
             const element = document.getElementById(elem.id)
-
+            console.log(elem);
 
             if (elem.type === 'block') {
                 formBody[elem.id] = element.textContent
@@ -113,6 +113,7 @@ const sendForm = ({
         console.log('catch')
         console.log(error.message)
     }
-
+    const smallBlocks = document.querySelectorAll("small")
+    console.log(smallBlocks[2])
 }
 export default sendForm
