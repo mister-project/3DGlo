@@ -100,8 +100,9 @@ const sendForm = ({
         if (!form) {
             throw new Error('Верните форму на место, пожалуйста)')
         }
-
+        console.log(form)
         form.addEventListener('submit', (e) => {
+            console.log('after' + form)
             e.preventDefault() //отменяем действие браузера по умолчанию при нажатии на кнопку       
             console.log('e.target' + e.target)
             alert('addEventListener в работе' + form)
@@ -109,6 +110,7 @@ const sendForm = ({
             submitForm()
         })
     } catch (error) {
+        console.log('catch')
         console.log(error.message)
     }
 
