@@ -2,8 +2,9 @@ const sendForm = ({
     formId,
     someElem = []
 }) => {
-    // console.dir(idForm)
     const form = document.getElementById(formId)
+    console.log(form)
+
 
     //блок извещения об отправке данных
     const statusBlock = document.createElement('div')
@@ -39,12 +40,14 @@ const sendForm = ({
     }
     //функция обработки данных, организации и отслеживания отправки формы
     const submitForm = () => {
+        console.log('submit запущена')
         //Получаем NodeList из полей ***для валидации***
         const formElements = form.querySelectorAll('input');
         console.log(formElements)
 
         //получаем сразу все поля из формы
         const formData = new FormData(form)
+        console.log(`formDat cформирована ${formData}`)
         const formBody = {} //сюда будем собирать инфу из формы и калькулятора
 
         //Вторая часть оповещения об отправке данных
@@ -89,26 +92,25 @@ const sendForm = ({
             alert('Данные не валидны!!!')
         }
     }
-    //Еще одна проверка (+защита от слома кода при неверном идентификаторе формы или изменении верстки)
-    if (!form) {
-        throw new Error('Верните форму на место, пожалуйста)')
-    }
+
 
     try {
 
+        //Еще одна првыаываывоверка (+защита от слома кода при неверном идентификаторе формы или изменении верстки)
+        if (!form) {
+            throw new Error('Верните форму на место, пожалуйста)')
+        }
+
         form.addEventListener('submit', (e) => {
             e.preventDefault() //отменяем действие браузера по умолчанию при нажатии на кнопку       
-
+            console.log('e.target' + e.target)
+            alert('addEventListener в работе' + form)
             //вызов функции организации отправки
             submitForm()
         })
     } catch (error) {
         console.log(error.message)
     }
-
-
-
-
 
 }
 export default sendForm
