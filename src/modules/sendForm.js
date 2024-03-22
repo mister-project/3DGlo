@@ -105,7 +105,7 @@ const sendForm = ({
            
             e.preventDefault() //отменяем действие браузера по умолчанию при нажатии на кнопку       
             
-            alert('addEventListener в работе' + form)
+            
             //вызов функции организации отправки
             submitForm()
         })

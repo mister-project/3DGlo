@@ -50,7 +50,7 @@ const validator = () => {
     //Только КИРИЛЛИЦА - валидация поля "Ваше сообщение в конце страницы"
     const place = document.querySelector('[placeholder="Ваше сообщение"]')
     place.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\-а-яА-ЯёЁ\s]+$/g, "")
+        e.target.value = e.target.value.replace(/[^\?!,.а-яА-ЯёЁ0-9\s]+$/g, "")
     })
 }
 export default validator
