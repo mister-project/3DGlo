@@ -40,7 +40,7 @@ const sendForm = ({
     }
     //функция обработки данных, организации и отслеживания отправки формы
     const submitForm = () => {
-        console.log('submit запущена')
+        
         //Получаем NodeList из полей ***для валидации***
         const formElements = form.querySelectorAll('input');
         console.log(formElements)
@@ -100,11 +100,11 @@ const sendForm = ({
         if (!form) {
             throw new Error('Верните форму на место, пожалуйста)')
         }
-        console.log(form)
+        
         form.addEventListener('submit', (e) => {
-            console.log('after' + form)
+           
             e.preventDefault() //отменяем действие браузера по умолчанию при нажатии на кнопку       
-            console.log('e.target' + e.target)
+            
             alert('addEventListener в работе' + form)
             //вызов функции организации отправки
             submitForm()
@@ -113,7 +113,6 @@ const sendForm = ({
         console.log('catch')
         console.log(error.message)
     }
-    const smallBlocks = document.querySelectorAll("small")
-    console.log(smallBlocks[2])
+    
 }
 export default sendForm

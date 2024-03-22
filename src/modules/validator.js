@@ -43,7 +43,7 @@ const validator = () => {
 
         elem.addEventListener('input', (e) => {
 
-            e.target.value = e.target.value.replace(/[^0-9\(\)\-]/g, "");
+            e.target.value = e.target.value.replace(/[^((8|\+7)^0-9\(\)\-]/g, "");
         })
     });
 

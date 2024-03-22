@@ -32,10 +32,10 @@ sendForm({
             id: 'total'
 
         },
-        {
-            type: 'block',
-            id: "form2-message"
-        }
+        // {
+        //     type: 'block',
+        //     id: "form2-message"
+        // }
     ]
 
 })
