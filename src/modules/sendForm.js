@@ -40,7 +40,7 @@ const sendForm = ({
     }
     //функция обработки данных, организации и отслеживания отправки формы
     const submitForm = () => {
-        
+
         //Получаем NodeList из полей ***для валидации***
         const formElements = form.querySelectorAll('input');
         console.log(formElements)
@@ -53,6 +53,10 @@ const sendForm = ({
         //Вторая часть оповещения об отправке данных
         statusBlock.textContent = loadText
         form.append(statusBlock)
+        if (formId === 'form3') {
+            statusBlock.setAttribute('style', 'color: #FFFFFF;')
+
+        }
 
         //перебираем и формируем заново получившиеся поля из формы
         formData.forEach((val, key) => {
@@ -100,12 +104,12 @@ const sendForm = ({
         if (!form) {
             throw new Error('Верните форму на место, пожалуйста)')
         }
-        
+
         form.addEventListener('submit', (e) => {
-           
+
             e.preventDefault() //отменяем действие браузера по умолчанию при нажатии на кнопку       
-            
-            
+
+
             //вызов функции организации отправки
             submitForm()
         })
@@ -113,6 +117,6 @@ const sendForm = ({
         console.log('catch')
         console.log(error.message)
     }
-    
+
 }
 export default sendForm
