@@ -3,7 +3,8 @@ const sendForm = ({
     someElem = []
 }) => {
     const form = document.getElementById(formId)
-    console.log(form)
+
+
 
 
     //блок извещения об отправке данных
@@ -43,11 +44,11 @@ const sendForm = ({
 
         //Получаем NodeList из полей ***для валидации***
         const formElements = form.querySelectorAll('input');
-        console.log(formElements)
+
 
         //получаем сразу все поля из формы
         const formData = new FormData(form)
-        console.log(`formDat cформирована ${formData}`)
+
         const formBody = {} //сюда будем собирать инфу из формы и калькулятора
 
         //Вторая часть оповещения об отправке данных
@@ -63,10 +64,20 @@ const sendForm = ({
             formBody[key] = val
 
         })
+
+        // form.forEach((el) => {
+        // tel = form.querySelector('input[type="tel"]')
+        // btn = form.querySelector('button[type="submit"]')
+        // console.log(tel)
+        // console.log(btn)
+
+
+
+        // })
         //вывод и отправка значения "Калькулятора"
         someElem.forEach(elem => {
             const element = document.getElementById(elem.id)
-            console.log(elem);
+
 
             if (elem.type === 'block') {
                 formBody[elem.id] = element.textContent

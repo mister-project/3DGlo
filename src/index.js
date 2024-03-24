@@ -3,6 +3,7 @@ import menu from './modules/menu'
 // import modal from './modules/modal'
 import modalk from './modules/modalk'
 import validator from './modules/validator'
+import validator_tel from './modules/validator_tel'
 import tabs from './modules/tabs'
 import slider from './modules/slider'
 import calc from './modules/calc'
@@ -13,6 +14,9 @@ menu();
 // modal();
 modalk()
 validator()
+validator_tel('form1')
+validator_tel('form2')
+validator_tel('form3')
 tabs()
 slider()
 calc(100)
