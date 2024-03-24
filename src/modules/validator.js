@@ -45,8 +45,9 @@ const validator = () => {
     tel.forEach(elem => {
 
         elem.addEventListener('input', (e) => {
-
+            //Задание условия через регулярку
             e.target.value = e.target.value.replace(/[^((8|\+7)^0-9\(\)\-]/g, "");
+            //Считаем цифры в номере телефона    
             const numberDigits = e.target.value.replace(/\D+/g, '').length
             console.log(numberDigits);
         })
