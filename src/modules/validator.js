@@ -27,14 +27,17 @@ const validator = () => {
 
     //Валидация поля с e-mail
     const email = document.querySelectorAll('.form-email')
+    console.dir(email)
 
     email.forEach(el => {
 
+        el.setAttribute("required", true); //Делаем поле  e-mail обязательным
         el.addEventListener('input', (e) => {
 
             e.target.value = e.target.value.replace(/([^A-Za-z0-9@\-\_\.\~\*\'])+$/g, "");
         })
     });
+
 
     //валидация телефона 
     const tel = document.querySelectorAll('input[type="tel"]')
@@ -44,6 +47,8 @@ const validator = () => {
         elem.addEventListener('input', (e) => {
 
             e.target.value = e.target.value.replace(/[^((8|\+7)^0-9\(\)\-]/g, "");
+            const numberDigits = e.target.value.replace(/\D+/g, '').length
+            console.log(numberDigits);
         })
     });
 
