@@ -20,9 +20,11 @@ const validator_tel = (formId) => {
             // alert('не менее 11 цифр')
 
             submit.setAttribute('disabled', true)
+            tel.setCustomValidity("не менее 11 цифр")
 
         } else {
             submit.disabled = false
+            tel.setCustomValidity("")
         }
         console.log(submit)
     })
