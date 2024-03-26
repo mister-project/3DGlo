@@ -93,6 +93,11 @@ const sendForm = ({
                 .then(data => {
                     //Вставка сообщения об успешной отправке
                     statusBlock.textContent = successText
+                    //Очистка блока statusBlock через 5 секунд
+                    setTimeout(() => {
+                    statusBlock.textContent = ''
+                   }, 5000);
+                   
 
                     formElements.forEach(input => {
 
