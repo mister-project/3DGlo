@@ -39,7 +39,7 @@ const calc = (price = 100) => {
         //Условие на обязательное заполнение полей со * (звездочкой) для выполнения расчетов
         if (calcType.value && calcSquare.value) {
             // console.log(calcCountValue)
-            totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue
+            totalValue = Math.round(price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue)
 
         } else {
             totalValue = 0
