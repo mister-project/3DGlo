@@ -13,7 +13,7 @@ const modalk = () => {
             modal.style.display = 'block'
             if (window.innerWidth > 768) {
                 animate({
-                    duration: 2000,
+                    duration: 300,
                     timing(timeFraction) {
                         return timeFraction;
                     },
